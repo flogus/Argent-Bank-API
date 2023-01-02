@@ -1,19 +1,17 @@
 import './App.css';
-import Banner from './components/banner';
-import Footer from './components/footer';
-import Hero from './pages/home/hero';
-import Sections from './pages/home/sections';
+
+
+import Home from './pages/home/home'
+import Signin from './pages/signin/signin'
+import { Routes, Route } from "react-router-dom"
+
 
 function App() {
   return (
-    <div className="App">
-      <Banner />
-      <main>
-        <Hero />
-        <Sections />
-      </main>
-      <Footer />
-    </div>
+  <Routes>
+    <Route path="/" element={ <Home/> } />
+    <Route path="signin" element={ <Signin /> } />
+  </Routes>
   );
 }
 

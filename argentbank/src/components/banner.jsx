@@ -3,9 +3,11 @@ import Logo from '../assets/argentBankLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 
 function Banner() {
-    return (<nav className="main-nav">
+    return (
+    <nav className="main-nav">
     <a className="main-nav-logo" href="./index.html">
       <img
         src={Logo}
@@ -15,11 +17,11 @@ function Banner() {
       <h1 className="sr-only">Argent Bank</h1>
     </a>
     <div>
-      <a className="main-nav-item" href="./sign-in.html">
-        <i className="fa fa-user-circle"></i>
-        <FontAwesomeIcon icon={faUserCircle} className='fa' />
-        Sign In
-      </a>
+      <Link className="main-nav-item" to="signin">
+          <i className="fa fa-user-circle"></i>
+          <FontAwesomeIcon icon={faUserCircle} className='fa' />
+          Sign In
+      </Link>
     </div>
   </nav>);
 }
