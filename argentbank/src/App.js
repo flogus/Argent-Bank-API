@@ -1,8 +1,8 @@
 import './App.css';
 
 
-import Home from './pages/home/home'
-import Signin from './pages/signin/signin'
+import Home from './pages/home/homepage'
+import Signin from './pages/signin/signinpage'
 import { Routes, Route } from "react-router-dom"
 
 
