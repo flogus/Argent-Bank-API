@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 function Banner() {
     return (
     <nav className="main-nav">
-    <a className="main-nav-logo" href="./index.html">
-      <img
-        src={Logo}
-        className="main-nav-logo-image"
-        alt="Argent Bank Logo"
-      />
-      <h1 className="sr-only">Argent Bank</h1>
-    </a>
+      <Link className="main-nav-logo" to="/">
+        <img
+          src={Logo}
+          className="main-nav-logo-image"
+          alt="Argent Bank Logo"
+        />
+        <h1 className="sr-only">Argent Bank</h1>
+      </Link>
     <div>
       <Link className="main-nav-item" to="signin">
           <i className="fa fa-user-circle"></i>
