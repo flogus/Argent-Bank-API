@@ -1,11 +1,8 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
-import Iconchat from '../assets/icon-chat.png'
-import Iconmoney from '../assets/icon-money.png'
-import Iconsecurity from '../assets/icon-security.png'
+import Iconchat from './../../assets/icon-chat.png'
+import Iconmoney from './../../assets/icon-money.png'
+import Iconsecurity from './../../assets/icon-security.png'
 
 const featureList = [
   {

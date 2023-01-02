@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Banner from './components/banner';
 import Footer from './components/footer';
-import Hero from './components/hero';
-import Sections from './components/sections';
+import Hero from './pages/home/hero';
+import Sections from './pages/home/sections';
 
 function App() {
   return (
