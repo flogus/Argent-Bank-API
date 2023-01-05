@@ -4,8 +4,8 @@ function Signinform() {
     return(
         <form>
             <div className="input-wrapper">
-                <label for="username">Username</label>
-                <input type="text" id="username" />
+                <label for="email">Email</label>
+                <input type="text" id="email" />
             </div>
             <div className="input-wrapper">
                 <label for="password">Password</label>
