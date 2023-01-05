@@ -5,19 +5,19 @@ import Account from './account';
 
 const accounteList = [
     {
-    "title":"Checking (x8349)",
-    "text":"Available Balance",
-    "amount":2082.79
+        "title":"Checking (x8349)",
+        "text":"Available Balance",
+        "amount":2082.79
     },
     {
-    "title":"Savings (x6712)",
-    "text":"Available Balance",
-    "amount":10928.42
+        "title":"Savings (x6712)",
+        "text":"Available Balance",
+        "amount":10928.42
     },
     {
-    "title":"Credit Card (x8349)",
-    "text":"Current Balance",
-    "amount":184.30
+        "title":"Credit Card (x8349)",
+        "text":"Current Balance",
+        "amount":184.30
     }
 ]
 const prenom = "Gabriel"
