@@ -12,6 +12,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+#root{
+  min-height: 100vh;
+}
 
 .main {
   flex: 1;
@@ -45,6 +48,7 @@ body {
 .main-nav a {
   font-weight: bold;
   color: #2c3e50;
+  flex: 1;
 }
 
 .main-nav a.router-link-exact-active {
