@@ -14,18 +14,19 @@ function Createform () {
     e.preventDefault()
     const userData = { lastName, firstName, email, password }
 
-    fetch('http://localhost:3001/api/v1/user/signup', {
+    fetch(signupUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
     }).then(() => {
-      console.log('new data added')
+      setMessage('New user added')
     })
   }
 
   return (
     <form onSubmit={handleSubmit} method='post'>
-      <div>{message}</div>
+      <h3 className='text-sm'>{message}</h3>
+
       <div className='input-wrapper'>
         <label htmlFor='firstName'>First Name</label>
         <input
