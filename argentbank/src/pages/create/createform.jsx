@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 function Createform () {
-  const [userdata, setUserdata] = useState()
   const [lastName, setLastName] = useState('Smith')
   const [firstName, setFirstName] = useState('John')
   const [email, setEmail] = useState('js@gmail.com')
@@ -9,6 +9,7 @@ function Createform () {
   const [message, setMessage] = useState('Please fill the form')
 
   const signupUrl = 'http://localhost:3001/api/v1/user/signup'
+  const navigate = useNavigate()
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -18,9 +19,11 @@ function Createform () {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
-    }).then(() => {
-      setMessage('New user added')
     })
+      .then(() => {
+        setMessage('New user added')
+      })
+      .then(navigate('/signin'))
   }
 
   return (
