@@ -19,11 +19,14 @@ function Createform () {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
+    }).then(resp => {
+      // console.log('resp', resp)
+      if (!resp.ok) {
+        setMessage('User already exist')
+      } else {
+        navigate('/signin')
+      }
     })
-      .then(() => {
-        setMessage('New user added')
-      })
-      .then(navigate('/signin'))
   }
 
   return (
