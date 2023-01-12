@@ -33,7 +33,7 @@ function Transaction (props) {
       console.log('Createform abToken', abToken)
       setToken(abToken)
     }
-  })
+  }, [])
 
   if (token) {
     return (
@@ -43,8 +43,20 @@ function Transaction (props) {
           <div className='header'>
             <h1>
               Welcome back
-              <br />
-              {prenom} {nom}!
+              <div
+                style={{
+                  justifyContent: 'center',
+                  display: 'flex'
+                }}
+              >
+                <div style={{ paddingRight: '7px' }} contentEditable={true}>
+                  {prenom}
+                </div>
+                <div style={{ paddingLeft: '7px' }} contentEditable={true}>
+                  {nom}
+                </div>
+                <div>!</div>
+              </div>
             </h1>
             <button className='edit-button'>Edit Name</button>
           </div>
