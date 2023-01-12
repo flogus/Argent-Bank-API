@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 function Createform () {
-  const [lastName, setLastName] = useState('Smith')
-  const [firstName, setFirstName] = useState('John')
-  const [email, setEmail] = useState('js@gmail.com')
+  const [lastName, setLastName] = useState('Jobs')
+  const [firstName, setFirstName] = useState('Steve')
+  const [email, setEmail] = useState('steve@apple.com')
   const [password, setPassword] = useState('0000')
   const [message, setMessage] = useState('Please fill the form')
 
@@ -32,7 +32,6 @@ function Createform () {
   return (
     <form onSubmit={handleSubmit} method='post'>
       <h3 className='text-sm'>{message}</h3>
-
       <div className='input-wrapper'>
         <label htmlFor='firstName'>First Name</label>
         <input
