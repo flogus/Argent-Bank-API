@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Banner from '../../components/banner'
 import Footer from '../../components/footer'
@@ -26,6 +26,14 @@ const nom = 'smith'
 function Transaction (props) {
   const [token, setToken] = useState('')
   const navigate = useNavigate()
+
+  useEffect(() => {
+    return () => {
+      const abToken = localStorage.getItem('abToken')
+      console.log('Createform abToken', abToken)
+      setToken(abToken)
+    }
+  })
 
   if (token) {
     return (
