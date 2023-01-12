@@ -4,35 +4,46 @@ import Token from './token'
 
 function Signinform () {
   const [token, setToken] = useState()
-  const [message, setMessage] = useState()
+  const [email, setEmail] = useState('steve@apple.com')
+  const [password, setPassword] = useState('0000')
+  const [message, setMessage] = useState('Please fill the form')
+
   const navigate = useNavigate()
 
   const loginUrl = 'http://localhost:3001/api/v1/user/login'
-  // const handleSubmit = () => {
-  //   console.log('submit')
-  // }
+
   const handleSubmit = async e => {
     e.preventDefault()
-    fetch(loginUrl, {
+    const userData = { email, password }
+
+    await fetch(loginUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: 'tony@stark.com',
-        password: '$2b$12$cPbZCPXvNdhdeC8a2fmLhOkMsKKo8eIezC09kgmB3OoP4V.Q3xk.6'
+      body: JSON.stringify(userData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('data', data.message)
+        setMessage(data.message)
+        if (data.message === 'User successfully logged in') {
+          console.log('Token', data.body.token)
+          localStorage.clear()
+          localStorage.setItem('abToken', data.body.token)
+          navigate('/transactions')
+        }
       })
-    }).then(response => response.json())
   }
   if (!token) {
     return (
       <form onSubmit={handleSubmit} method='get'>
-        <h3>{message}</h3>
+        <h3 className='text-sm'>{message}</h3>
         <div className='input-wrapper'>
           <label htmlFor='email'>Email</label>
-          <input type='text' id='email' />
+          <input type='text' id='email' defaultValue={email} />
         </div>
         <div className='input-wrapper'>
           <label htmlFor='password'>Password</label>
-          <input type='password' id='password' />
+          <input type='password' id='password' defaultValue={password} />
         </div>
         <div className='input-remember'>
           <input type='checkbox' id='remember-me' />
