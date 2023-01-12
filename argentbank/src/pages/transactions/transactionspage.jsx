@@ -40,13 +40,13 @@ function Transaction (props) {
       <div className='App'>
         <Banner />
         <main className='main bg-dark'>
-          <div class='header'>
+          <div className='header'>
             <h1>
               Welcome back
               <br />
               {prenom} {nom}!
             </h1>
-            <button class='edit-button'>Edit Name</button>
+            <button className='edit-button'>Edit Name</button>
           </div>
           <h2 class='sr-only'>Accounts</h2>
           {accounteList.map((element, index) => {
