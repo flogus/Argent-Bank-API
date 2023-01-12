@@ -35,7 +35,7 @@ function Signinform () {
   }
   if (!token) {
     return (
-      <form onSubmit={handleSubmit} method='get'>
+      <form onSubmit={handleSubmit} method='post'>
         <h3 className='text-sm'>{message}</h3>
         <div className='input-wrapper'>
           <label htmlFor='email'>Email</label>
