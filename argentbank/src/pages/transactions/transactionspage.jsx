@@ -67,6 +67,7 @@ function Transaction (props) {
                 amount={element.amount}
                 title={element.title}
                 text={element.text}
+                key={element.amount}
               />
             )
           })}
