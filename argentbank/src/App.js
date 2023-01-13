@@ -3,7 +3,7 @@ import Home from './pages/home/homepage'
 import Signin from './pages/signin/signinpage'
 import Transactions from './pages/transactions/transactionspage'
 import Create from './pages/create/createpage'
-import Profile from './pages/profil/profilepage'
+import Profile from './pages/profile/profilepage'
 import { Routes, Route } from 'react-router-dom'
 
 function App () {
