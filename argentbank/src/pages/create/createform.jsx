@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 
@@ -13,20 +14,17 @@ function Createform () {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const userData = { lastName, firstName, email, password }
 
-    fetch(signupUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(userData)
-    }).then(resp => {
-      // console.log('resp', resp)
-      if (!resp.ok) {
-        setMessage('User already exist')
-      } else {
+    axios
+      .post(signupUrl, { lastName, firstName, email, password })
+      .then(function (response) {
+        console.log('response', response)
         navigate('/signin')
-      }
-    })
+      })
+      .catch(function (error) {
+        console.log('error', error)
+        setMessage('User already exist')
+      })
   }
 
   return (
