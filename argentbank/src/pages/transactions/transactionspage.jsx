@@ -49,10 +49,18 @@ function Transaction (props) {
                   display: 'flex'
                 }}
               >
-                <div style={{ paddingRight: '7px' }} contentEditable={true}>
+                <div
+                  style={{ paddingRight: '7px' }}
+                  contentEditable={true}
+                  suppressContentEditableWarning={true}
+                >
                   {prenom}
                 </div>
-                <div style={{ paddingLeft: '7px' }} contentEditable={true}>
+                <div
+                  style={{ paddingLeft: '7px' }}
+                  contentEditable={true}
+                  suppressContentEditableWarning={true}
+                >
                   {nom}
                 </div>
                 <div>!</div>
@@ -60,7 +68,7 @@ function Transaction (props) {
             </h1>
             <button className='edit-button'>Edit Name</button>
           </div>
-          <h2 class='sr-only'>Accounts</h2>
+          <h2 className='sr-only'>Accounts</h2>
           {accounteList.map((element, index) => {
             return (
               <Account
