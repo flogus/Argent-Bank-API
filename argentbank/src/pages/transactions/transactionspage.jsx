@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Banner from '../../components/banner'
 import Footer from '../../components/footer'
 import Account from './account'
@@ -49,24 +49,14 @@ function Transaction (props) {
                   display: 'flex'
                 }}
               >
-                <div
-                  style={{ paddingRight: '7px' }}
-                  contentEditable={true}
-                  suppressContentEditableWarning={true}
-                >
-                  {prenom}
-                </div>
-                <div
-                  style={{ paddingLeft: '7px' }}
-                  contentEditable={true}
-                  suppressContentEditableWarning={true}
-                >
-                  {nom}
-                </div>
+                <div style={{ paddingRight: '7px' }}>{prenom}</div>
+                <div style={{ paddingLeft: '7px' }}>{nom}</div>
                 <div>!</div>
               </div>
             </h1>
-            <button className='edit-button'>Edit Name</button>
+            <Link to='/profile'>
+              <button className='edit-button'>Edit Name</button>
+            </Link>
           </div>
           <h2 className='sr-only'>Accounts</h2>
           {accounteList.map((element, index) => {
