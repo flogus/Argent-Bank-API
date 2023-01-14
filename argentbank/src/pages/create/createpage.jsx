@@ -10,9 +10,9 @@ function Create () {
       <Banner />
       <main className='main bg-dark'>
         <section className='sign-in-content'>
-          <i className='fa fa-user-circle sign-in-icon'></i>
           <h1>Create account</h1>
           <Createform />
+          <br />
           <Link to='/'>Cancel</Link>
         </section>
       </main>

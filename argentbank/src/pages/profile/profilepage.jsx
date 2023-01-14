@@ -9,8 +9,7 @@ function Profile () {
       <Banner />
       <main className='main bg-dark'>
         <section className='sign-in-content'>
-          <i className='fa fa-user-circle sign-in-icon'></i>
-          <h1>Profile</h1>
+          <h1>Your profile</h1>
           <Profileform />
         </section>
       </main>

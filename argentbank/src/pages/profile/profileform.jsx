@@ -6,7 +6,7 @@ function Profileform () {
   const [firstName, setFirstName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [message, setMessage] = useState('Please fill the form')
+  const [message, setMessage] = useState('')
 
   const signupUrl = 'http://localhost:3001/api/v1/user/signup'
   const navigate = useNavigate()
@@ -54,11 +54,7 @@ function Profileform () {
           onChange={e => setEmail(e.target.value)}
         />
       </div>
-      <div className='input-remember'>
-        <input type='checkbox' id='remember-me' />
-        <label htmlFor='remember-me'>Remember me</label>
-      </div>
-      <button className='sign-in-button'>Create account</button>
+      <button className='sign-in-button'>Update your account</button>
     </form>
   )
 }
