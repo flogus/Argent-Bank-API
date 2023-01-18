@@ -16,7 +16,9 @@ function Banner () {
     }
   }, [])
 
-  const removeToken = () => localStorage.removeItem('abToken')
+  const removeToken = () => {
+    localStorage.removeItem('abToken')
+  }
 
   if (token) {
     return (
@@ -35,7 +37,7 @@ function Banner () {
             <FontAwesomeIcon icon={faUserCircle} className='fa' />
             Prenom Nom
           </Link>
-          <Link className='main-nav-item' to='/'>
+          <Link className='main-nav-item' to='/' onClick={removeToken}>
             <FontAwesomeIcon icon={faRightFromBracket} className='fa' />
             Sign Out
           </Link>
