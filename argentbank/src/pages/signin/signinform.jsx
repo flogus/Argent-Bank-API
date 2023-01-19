@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Token from './token'
@@ -16,19 +17,19 @@ function Signinform () {
     e.preventDefault()
     const userData = { email, password }
 
-    await fetch(loginUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(userData)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('data', data.message)
-        setMessage(data.message)
-        if (data.message === 'User successfully logged in') {
-          console.log('Token', data.body.token)
+    await axios
+      .post(loginUrl, JSON.stringify(userData), {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(function (response) {
+        console.log('response', response.data.message)
+        setMessage(response.data.message)
+        if (response.data.message === 'User successfully logged in') {
+          console.log('Token', response.data.body.token)
           localStorage.clear()
-          localStorage.setItem('abToken', data.body.token)
+          localStorage.setItem('abToken', response.data.body.token)
           navigate('/transactions')
         }
       })
