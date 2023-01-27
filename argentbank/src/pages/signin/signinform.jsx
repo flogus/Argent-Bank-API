@@ -1,9 +1,14 @@
 import axios from 'axios'
+//import { InterceptorResponse } from '../../interceptor/interceptorResponse'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Token from './token'
+
+//axios.interceptors.response.use(InterceptorResponse)
 
 function Signinform () {
+  // let abtoken = localStorage.getItem('abtoken') ? JSON.parse(localStorage.getItem('abtoken')) : null
+
+  const [status, setStatus] = useState()
   const [token, setToken] = useState()
   const [email, setEmail] = useState('steve@apple.com')
   const [password, setPassword] = useState('0000')
@@ -38,6 +43,7 @@ function Signinform () {
     return (
       <form onSubmit={handleSubmit} method='post'>
         <h3 className='text-sm'>{message}</h3>
+        <h4 className='text-sm'>{status}</h4>
         <div className='input-wrapper'>
           <label htmlFor='email'>Email</label>
           <input type='text' id='email' defaultValue={email} />
