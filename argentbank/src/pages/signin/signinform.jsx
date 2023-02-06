@@ -29,10 +29,9 @@ function Signinform () {
         }
       })
       .then(function (response) {
-        console.log('response', response.data.message)
+        console.log('response', response.data)
         setMessage(response.data.message)
         if (response.data.message === 'User successfully logged in') {
-          console.log('Token', response.data.body.token)
           localStorage.clear()
           localStorage.setItem('abToken', response.data.body.token)
           navigate('/transactions')

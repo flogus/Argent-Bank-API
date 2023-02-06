@@ -5,6 +5,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import { Userinfo } from './../features/user/Userinfo'
 
 function Banner () {
   const [token, setToken] = useState('')
@@ -35,7 +36,7 @@ function Banner () {
           <Link className='main-nav-item' to='/profile'>
             <i className='fa fa-user-circle'></i>
             <FontAwesomeIcon icon={faUserCircle} className='fa' />
-            Prenom Nom
+            <Userinfo />
           </Link>
           <Link className='main-nav-item' to='/' onClick={removeToken}>
             <FontAwesomeIcon icon={faRightFromBracket} className='fa' />

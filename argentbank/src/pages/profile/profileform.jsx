@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 function Profileform () {
-  const [lastName, setLastName] = useState('')
-  const [firstName, setFirstName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const user = useSelector(state => state.user)
+  const [lastName, setLastName] = useState(user.lastName)
+  const [firstName, setFirstName] = useState(user.firstName)
+  const [email, setEmail] = useState(user.email)
+  const [password, setPassword] = useState(user.password)
   const [message, setMessage] = useState('')
 
   const signupUrl = 'http://localhost:3001/api/v1/user/signup'

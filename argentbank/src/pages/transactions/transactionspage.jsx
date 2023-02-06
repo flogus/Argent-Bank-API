@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import Banner from '../../components/banner'
 import Footer from '../../components/footer'
 import Account from './account'
+import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { Userinfo } from './../../features/user/Userinfo'
 
 const accounteList = [
   {
@@ -21,19 +24,35 @@ const accounteList = [
     amount: 184.3
   }
 ]
-const prenom = 'john'
-const nom = 'smith'
+
 function Transaction (props) {
   const [token, setToken] = useState('')
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     return () => {
       const abToken = localStorage.getItem('abToken')
-      console.log('Createform abToken', abToken)
       setToken(abToken)
+      // console.log('abToken', abToken)
+      //getProfile()
     }
   }, [])
+
+  // const profileUrl = 'http://localhost:3001/api/v1/user/profile'
+
+  // const getProfile = token => {
+  //   axios
+  //     .post(profileUrl, null, {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     })
+  //     .then(function (response) {
+  //       console.log('response', response.data)
+  //       // console.log('email', response.data.body.email)
+  //     })
+  // }
 
   if (token) {
     return (
@@ -49,14 +68,17 @@ function Transaction (props) {
                   display: 'flex'
                 }}
               >
-                <div style={{ paddingRight: '7px' }}>{prenom}</div>
-                <div style={{ paddingLeft: '7px' }}>{nom}</div>
+                <Userinfo />
                 <div>!</div>
               </div>
             </h1>
-            <Link to='/profile'>
-              <button className='edit-button'>Edit Name</button>
-            </Link>
+            <button
+              className='edit-button'
+              onClick={() => dispatch({ type: 'user/add' })}
+            >
+              Edit Name test
+            </button>
+            <Link to='/profile'>Profil</Link>
           </div>
           <h2 className='sr-only'>Accounts</h2>
           {accounteList.map((element, index) => {
@@ -76,9 +98,9 @@ function Transaction (props) {
   } else {
     return (
       <div>
-        No token
+        No token found
         <br />
-        Redirect to signin
+        <Link to='/signin'>Please, go signin</Link>
       </div>
     )
     // navigate('/signin')
