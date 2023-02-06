@@ -26,33 +26,33 @@ const accounteList = [
 ]
 
 function Transaction (props) {
-  const [token, setToken] = useState('')
+  const [token, setToken] = useState()
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   useEffect(() => {
     return () => {
-      const abToken = localStorage.getItem('abToken')
-      setToken(abToken)
-      // console.log('abToken', abToken)
-      //getProfile()
+      const token = localStorage.getItem('abToken')
+      setToken(token)
+      console.log('abToken', token)
+      getProfile(token)
     }
   }, [])
 
-  // const profileUrl = 'http://localhost:3001/api/v1/user/profile'
+  const profileUrl = 'http://localhost:3001/api/v1/user/profile'
 
-  // const getProfile = token => {
-  //   axios
-  //     .post(profileUrl, null, {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     })
-  //     .then(function (response) {
-  //       console.log('response', response.data)
-  //       // console.log('email', response.data.body.email)
-  //     })
-  // }
+  const getProfile = token => {
+    axios
+      .post(profileUrl, null, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then(function (response) {
+        console.log('response', response.data)
+        console.log('email', response.data.body.email)
+      })
+  }
 
   if (token) {
     return (
