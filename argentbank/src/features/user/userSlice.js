@@ -10,7 +10,22 @@ const initialState = {
 const userSlice = createSlice({
   name: 'user',
   initialState: initialState,
-  reducers: {}
+  reducers: {
+    updateUser (state) {
+      state.firstName = 'Angus'
+      state.lastName = 'Young'
+      state.email = 'angus.young@acdc.com'
+    },
+    update: (state, param) => {
+      const { payload } = param
+      console.log('update payload', payload)
+      state.firstName = payload.firstName
+      state.lastName = payload.lastName
+      state.email = payload.email
+      state.password = payload.password
+    }
+  }
 })
 
-export default userSlice
+export const { updateUser, update } = userSlice.actions
+export default userSlice.reducer
