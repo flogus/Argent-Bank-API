@@ -8,10 +8,10 @@ import { useNavigate } from 'react-router-dom'
 function Signinform () {
   // let abtoken = localStorage.getItem('abtoken') ? JSON.parse(localStorage.getItem('abtoken')) : null
 
-  const [status, setStatus] = useState()
-  const [token, setToken] = useState()
-  const [email, setEmail] = useState('steve@apple.com')
-  const [password, setPassword] = useState('0000')
+  const [status, setStatus] = useState('')
+  const [token, setToken] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [message, setMessage] = useState('Please fill the form')
 
   const navigate = useNavigate()
@@ -20,8 +20,8 @@ function Signinform () {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const userData = { email, password }
 
+    const userData = { email, password }
     await axios
       .post(loginUrl, JSON.stringify(userData), {
         headers: {
@@ -45,11 +45,19 @@ function Signinform () {
         <h4 className='text-sm'>{status}</h4>
         <div className='input-wrapper'>
           <label htmlFor='email'>Email</label>
-          <input type='text' id='email' defaultValue={email} />
+          <input
+            type='text'
+            id='email'
+            onChange={e => setEmail(e.target.value)}
+          />
         </div>
         <div className='input-wrapper'>
           <label htmlFor='password'>Password</label>
-          <input type='password' id='password' defaultValue={password} />
+          <input
+            type='password'
+            id='password'
+            onChange={e => setPassword(e.target.value)}
+          />
         </div>
         <div className='input-remember'>
           <input type='checkbox' id='remember-me' />
