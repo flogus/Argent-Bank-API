@@ -6,6 +6,16 @@ import Account from './account'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { Userinfo } from './../../features/user/Userinfo'
+import {
+  update,
+  updateUser,
+  updateUtili
+} from './../../features/user/userSlice'
+
+import {
+  initTransac,
+  addATransac
+} from '../../features/transactions/transactionsSlice'
 
 const accounteList = [
   {
@@ -36,8 +46,9 @@ function Transaction (props) {
       setToken(token)
       console.log('abToken', token)
       getProfile(token)
+      initTransac()
     }
-  }, [])
+  })
 
   const profileUrl = 'http://localhost:3001/api/v1/user/profile'
 
@@ -51,6 +62,14 @@ function Transaction (props) {
       .then(function (response) {
         console.log('response', response.data)
         console.log('email', response.data.body.email)
+
+        const myPayload = {
+          firstName: response.data.body.firstName,
+          lastName: response.data.body.lastName,
+          email: response.data.body.email,
+          password: response.data.body.password
+        }
+        dispatch(update(myPayload))
       })
   }
 
@@ -74,7 +93,7 @@ function Transaction (props) {
             </h1>
             <button
               className='edit-button'
-              onClick={() => dispatch({ type: 'user/add' })}
+              onClick={() => dispatch(updateUser())}
             >
               Edit Name test
             </button>
