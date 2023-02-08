@@ -95,9 +95,18 @@ function Transaction (props) {
               className='edit-button'
               onClick={() => dispatch(updateUser())}
             >
-              Edit Name test
+              Change transactions
             </button>
-            <Link to='/profile'>Profil</Link>
+            <button
+              className='edit-button'
+              onClick={() => dispatch(updateUser())}
+            >
+              Change user
+            </button>
+
+            <Link to='/profile'>
+              <button className='edit-button'>Profile</button>
+            </Link>
           </div>
           <h2 className='sr-only'>Accounts</h2>
           {accounteList.map((element, index) => {
