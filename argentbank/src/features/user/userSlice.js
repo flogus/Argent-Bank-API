@@ -18,7 +18,6 @@ const userSlice = createSlice({
     },
     update: (state, param) => {
       const { payload } = param
-      console.log('update payload', payload)
       state.firstName = payload.firstName
       state.lastName = payload.lastName
       state.email = payload.email
