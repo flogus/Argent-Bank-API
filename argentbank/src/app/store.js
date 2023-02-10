@@ -4,7 +4,7 @@ import transactionsReducer from '../features/transactions/transactionsSlice'
 const store = configureStore({
   reducer: {
     user: userReducer,
-    transaction: transactionsReducer
+    transactions: transactionsReducer
   }
 })
 export default store
