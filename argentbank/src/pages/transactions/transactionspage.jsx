@@ -4,8 +4,9 @@ import Banner from '../../components/banner'
 import Footer from '../../components/footer'
 import Account from './account'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Userinfo } from './../../features/user/Userinfo'
+
 import {
   update,
   updateUser,
@@ -35,16 +36,16 @@ const accounteList = [
   }
 ]
 
-function Transaction (props) {
+function Transactions (props) {
   const [token, setToken] = useState()
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const transactions = useSelector(state => state.transactions)
 
   useEffect(() => {
     return () => {
       const token = localStorage.getItem('abToken')
       setToken(token)
-      console.log('abToken', token)
       getProfile(token)
       initTransac()
     }
@@ -60,9 +61,6 @@ function Transaction (props) {
         }
       })
       .then(function (response) {
-        console.log('response', response.data)
-        console.log('email', response.data.body.email)
-
         const myPayload = {
           firstName: response.data.body.firstName,
           lastName: response.data.body.lastName,
@@ -93,7 +91,7 @@ function Transaction (props) {
             </h1>
             <button
               className='edit-button'
-              onClick={() => dispatch(updateUser())}
+              onClick={() => dispatch(initTransac())}
             >
               Change transactions
             </button>
@@ -107,8 +105,16 @@ function Transaction (props) {
             <Link to='/profile'>
               <button className='edit-button'>Profile</button>
             </Link>
+            <h4>transactions: {transactions.amount}</h4>
           </div>
           <h2 className='sr-only'>Accounts</h2>
+          <Account
+            amount={transactions.amount}
+            title={transactions.title}
+            text={transactions.text}
+            key={transactions.amount}
+          />
+
           {accounteList.map((element, index) => {
             return (
               <Account
@@ -135,4 +141,4 @@ function Transaction (props) {
   }
 }
 
-export default Transaction
+export default Transactions
