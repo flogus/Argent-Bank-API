@@ -1,20 +1,43 @@
+import axios from 'axios'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { update } from '../../features/user/userSlice'
 
 function Profileform () {
   const user = useSelector(state => state.user)
-  const [lastName, setLastName] = useState(user.lastName)
   const [firstName, setFirstName] = useState(user.firstName)
-  const [email, setEmail] = useState(user.email)
-  const [password, setPassword] = useState(user.password)
+  const [lastName, setLastName] = useState(user.lastName)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
+  const dispatch = useDispatch()
 
-  const signupUrl = 'http://localhost:3001/api/v1/user/signup'
+  const signupUrl = 'http://localhost:3001/api/v1/user/profile'
   const navigate = useNavigate()
 
   const handleSubmit = async e => {
     e.preventDefault()
+
+    const userData = { lastName, firstName }
+    console.log('Profil put', userData)
+    axios
+      .put(signupUrl, userData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('abToken')}`
+        }
+      })
+      .then(response => {
+        const thePayload = {
+          firstName: response.data.body.firstName,
+          lastName: response.data.body.lastName
+        }
+        dispatch({
+          type: 'user/update',
+          payload: thePayload
+        })
+        navigate('/transactions')
+      })
   }
 
   return (
@@ -43,7 +66,7 @@ function Profileform () {
         <input
           type='password'
           id='password'
-          value={password}
+          value={user.password}
           onChange={e => setPassword(e.target.value)}
         />
       </div>
@@ -52,7 +75,7 @@ function Profileform () {
         <input
           type='text'
           id='email'
-          value={email}
+          value={user.email}
           onChange={e => setEmail(e.target.value)}
         />
       </div>
