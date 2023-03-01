@@ -71,74 +71,63 @@ function Transactions (props) {
       })
   }
 
-  if (token) {
-    return (
-      <div className='App'>
-        <Banner />
-        <main className='main bg-dark'>
-          <div className='header'>
-            <h1>
-              Welcome back
-              <div
-                style={{
-                  justifyContent: 'center',
-                  display: 'flex'
-                }}
-              >
-                <Userinfo />
-                <div>!</div>
-              </div>
-            </h1>
-            <button
-              className='edit-button'
-              onClick={() => dispatch(initTransac())}
+  return (
+    <div className='App'>
+      <Banner />
+      <main className='main bg-dark'>
+        <div className='header'>
+          <h1>
+            Welcome back
+            <div
+              style={{
+                justifyContent: 'center',
+                display: 'flex'
+              }}
             >
-              Change transactions
-            </button>
-            <button
-              className='edit-button'
-              onClick={() => dispatch(updateUser())}
-            >
-              Change user
-            </button>
+              <Userinfo />
+              <div>!</div>
+            </div>
+          </h1>
+          <button
+            className='edit-button'
+            onClick={() => dispatch(initTransac())}
+          >
+            Change transactions
+          </button>
+          <button
+            className='edit-button'
+            onClick={() => dispatch(updateUser())}
+          >
+            Change user
+          </button>
 
-            <Link to='/profile'>
-              <button className='edit-button'>Profile</button>
-            </Link>
-            <h4>transactions: {transactions.amount}</h4>
-          </div>
-          <h2 className='sr-only'>Accounts</h2>
-          <Account
-            amount={transactions.amount}
-            title={transactions.title}
-            text={transactions.text}
-            key={transactions.amount}
-          />
+          <Link to='/profile'>
+            <button className='edit-button'>Profile</button>
+          </Link>
+          <h4>transactions: {transactions.amount}</h4>
+        </div>
+        <h2 className='sr-only'>Accounts</h2>
+        <Account
+          amount={transactions.amount}
+          title={transactions.title}
+          text={transactions.text}
+          key={transactions.amount}
+        />
 
-          {accounteList.map((element, index) => {
-            return (
-              <Account
-                amount={element.amount}
-                title={element.title}
-                text={element.text}
-                key={element.amount}
-              />
-            )
-          })}
-        </main>
-        <Footer />
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        No token found
-        <br />
-        <Link to='/signin'>Please, go signin</Link>
-      </div>
-    )
-    // navigate('/signin')
-  }
+        {accounteList.map((element, index) => {
+          return (
+            <Account
+              amount={element.amount}
+              title={element.title}
+              text={element.text}
+              key={element.amount}
+            />
+          )
+        })}
+      </main>
+      <Footer />
+    </div>
+  )
 }
 
 export default Transactions
