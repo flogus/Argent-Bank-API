@@ -5,6 +5,7 @@ import Transactions from './pages/transactions/transactionspage'
 import Create from './pages/create/createpage'
 import Profile from './pages/profile/profilepage'
 import { Routes, Route } from 'react-router-dom'
+import { InterceptorResponse } from './interceptor/interceptorResponse'
 
 function App () {
   return (

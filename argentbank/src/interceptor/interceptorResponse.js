@@ -1,15 +1,18 @@
 import axios from 'axios'
 
 export const InterceptorResponse = axios.interceptors.response.use(
-  function (response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
-    console.log(response.data.body.token)
+  response => {
     return response
   },
-  function (error) {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
-    return Promise.reject(error)
+  error => {
+    console.log('Error', error)
+    const statusCode = error.response.data.status
+
+    if (statusCode === 401) {
+      console.log('Error : go to login')
+      localStorage.removeItem('abToken')
+      window.location.href = '/signin'
+    }
+    return error
   }
 )
