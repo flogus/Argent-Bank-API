@@ -1,9 +1,6 @@
 import axios from 'axios'
-//import { InterceptorResponse } from '../../interceptor/interceptorResponse'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
-//axios.interceptors.response.use(InterceptorResponse)
 
 function Signinform () {
   // let abtoken = localStorage.getItem('abtoken') ? JSON.parse(localStorage.getItem('abtoken')) : null
@@ -29,7 +26,7 @@ function Signinform () {
         }
       })
       .then(function (response) {
-        console.log('response', response.data)
+        // console.log('response', response.data)
         setMessage(response.data.message)
         if (response.data.message === 'User successfully logged in') {
           localStorage.clear()

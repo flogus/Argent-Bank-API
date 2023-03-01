@@ -18,11 +18,11 @@ function Createform () {
     axios
       .post(signupUrl, { lastName, firstName, email, password })
       .then(function (response) {
-        console.log('response', response)
+        // console.log('response', response)
         navigate('/signin')
       })
       .catch(function (error) {
-        console.log('error', error)
+        // console.log('error', error)
         setMessage('User already exist')
       })
   }
