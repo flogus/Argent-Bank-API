@@ -88,18 +88,6 @@ function Transactions (props) {
               <div>!</div>
             </div>
           </h1>
-          <button
-            className='edit-button'
-            onClick={() => dispatch(initTransac())}
-          >
-            Change transactions
-          </button>
-          <button
-            className='edit-button'
-            onClick={() => dispatch(updateUser())}
-          >
-            Change user
-          </button>
 
           <Link to='/profile'>
             <button className='edit-button'>Profile</button>
