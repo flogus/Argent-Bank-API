@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { update } from '../../features/user/userSlice'
+import { useNavigate } from 'react-router-dom'
+import { update } from '../../components/user/userSlice'
 
 function Profileform () {
   const user = useSelector(state => state.user)

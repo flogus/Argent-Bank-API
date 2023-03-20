@@ -1,8 +1,8 @@
 import React from 'react'
-import Banner from '../../components/banner'
-import Footer from '../../components/footer'
+import Banner from '../../components/banner/banner'
+import Footer from '../../components/footer/footer'
 import Profileform from './profileform'
-import { Userinfo } from './../../features/user/Userinfo'
+import { Userinfo } from '../../components/user/Userinfo'
 
 function Profile () {
   return (

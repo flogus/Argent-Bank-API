@@ -1,6 +1,6 @@
 import React from 'react'
-import Banner from '../../components/banner'
-import Footer from '../../components/footer'
+import Banner from '../../components/banner/banner'
+import Footer from '../../components/footer/footer'
 import Createform from './createform'
 import { Link } from 'react-router-dom'
 

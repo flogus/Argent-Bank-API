@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Logo from '../assets/argentBankLogo.png'
+import Logo from '../../assets/argentBankLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-import { Userinfo } from './../features/user/Userinfo'
+import { Userinfo } from '../user/Userinfo'
 
 function Banner () {
   const [token, setToken] = useState('')

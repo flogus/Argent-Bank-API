@@ -11,11 +11,6 @@ const userSlice = createSlice({
   name: 'user',
   initialState: initialState,
   reducers: {
-    updateUser (state) {
-      state.firstName = 'Angus'
-      state.lastName = 'Young'
-      state.email = 'angus.young@acdc.com'
-    },
     update: (state, param) => {
       const { payload } = param
       state.firstName = payload.firstName

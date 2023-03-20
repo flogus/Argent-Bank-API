@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Banner from '../../components/banner'
-import Footer from '../../components/footer'
+import Banner from '../../components/banner/banner'
+import Footer from '../../components/footer/footer'
 import Account from './account'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import { Userinfo } from './../../features/user/Userinfo'
+import { Userinfo } from '../../components/user/Userinfo'
 
 import {
   update,
   updateUser,
   updateUtili
-} from './../../features/user/userSlice'
+} from '../../components/user/userSlice'
 
 import {
   initTransac,
   addATransac
-} from '../../features/transactions/transactionsSlice'
+} from '../../components/transactions/transactionsSlice'
 
 const accounteList = [
   {
@@ -92,7 +92,6 @@ function Transactions (props) {
           <Link to='/profile'>
             <button className='edit-button'>Profile</button>
           </Link>
-          <h4>transactions: {transactions.amount}</h4>
         </div>
         <h2 className='sr-only'>Accounts</h2>
         <Account
