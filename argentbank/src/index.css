@@ -48,18 +48,26 @@ body {
 .main-nav a {
   font-weight: bold;
   color: #2c3e50;
-  flex: 1;
+  flex: 0 1 auto;
 }
 
 .main-nav a.router-link-exact-active {
   color: #42b983;
 }
 
+.main-nav-item-container {
+  display: flex;
+  align-items: center;
+}
 .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
 }
-
+.main-nav-item svg{
+  padding-right: 3px;
+}
 .main-nav-item:hover {
   text-decoration: underline;
 }

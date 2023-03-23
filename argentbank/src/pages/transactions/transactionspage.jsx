@@ -90,7 +90,7 @@ function Transactions (props) {
           </h1>
 
           <Link to='/profile'>
-            <button className='edit-button'>Profile</button>
+            <button className='edit-button'>Edit Name</button>
           </Link>
         </div>
         <h2 className='sr-only'>Accounts</h2>

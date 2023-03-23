@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Logo from '../../assets/argentBankLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
@@ -32,9 +31,8 @@ function Banner () {
           />
           <h1 className='sr-only'>Argent Bank</h1>
         </Link>
-        <div>
+        <div className='main-nav-item-container'>
           <Link className='main-nav-item' to='/profile'>
-            <i className='fa fa-user-circle'></i>
             <FontAwesomeIcon icon={faUserCircle} className='fa' />
             <Userinfo />
           </Link>
