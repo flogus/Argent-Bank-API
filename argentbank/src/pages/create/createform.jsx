@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 function Createform () {
-  const [lastName, setLastName] = useState('Jobs')
-  const [firstName, setFirstName] = useState('Steve')
-  const [email, setEmail] = useState('steve@apple.com')
-  const [password, setPassword] = useState('0000')
+  const [lastName, setLastName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [message, setMessage] = useState('Please fill the form')
 
   const signupUrl = 'http://localhost:3001/api/v1/user/signup'
