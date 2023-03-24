@@ -90,18 +90,6 @@ paths:
           description: Internal Server Error
       produces:
         - application/json
-    delete:
-      tags:
-        - Transactions Module
-      summary: Delete a transaction base on id
-      description: API for Transaction
-      responses:
-        '204':
-          description: No content
-        '404':
-          description: Not Found - The requested resources was not found in this server
-        '500':
-          description: Internal Server Error
   /bank-accounts/:
     get:
       tags:
