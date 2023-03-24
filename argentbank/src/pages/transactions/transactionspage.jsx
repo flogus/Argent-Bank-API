@@ -7,16 +7,9 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { Userinfo } from '../../components/user/Userinfo'
 
-import {
-  update,
-  updateUser,
-  updateUtili
-} from '../../components/user/userSlice'
+import { update, updateUser, updateUtili } from '../../store/userSlice'
 
-import {
-  initTransac,
-  addATransac
-} from '../../components/transactions/transactionsSlice'
+import { initTransac, addATransac } from '../../store/transactionsSlice'
 
 const accounteList = [
   {
