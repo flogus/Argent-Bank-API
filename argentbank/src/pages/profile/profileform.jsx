@@ -20,7 +20,6 @@ function Profileform () {
     e.preventDefault()
 
     const userData = { lastName, firstName }
-    console.log('Profil put', userData)
     axios
       .put(signupUrl, userData, {
         headers: {
